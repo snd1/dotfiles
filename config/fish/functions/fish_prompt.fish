@@ -1,6 +1,6 @@
 set -g fish_prompt_pwd_dir_length 0
 set -g fish_color_user yellow
-set -g fish_color_at brblack
+set -g fish_color_at \#555555
 set -g fish_color_hostname cyan
 set -g fish_color_cwd \#00ffff
 set -g fish_color_command \#ffff87
