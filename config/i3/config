@@ -175,17 +175,17 @@ set $screen_external_2 "DP1-2"
 
 workspace $workspace1_chat         output $screen_internal
 workspace $workspace2_mail         output $screen_external_1
-workspace $workspace3_code         output $screen_external_2
-workspace $workspace4_browser      output $screen_external_1
+workspace $workspace3_code         output $screen_external_1
+workspace $workspace4_browser      output $screen_external_2
 
 #############################################
 #               Windows-specific            #
 #############################################
 
 # Program-Workspace Default Mapping
-assign [class="Pidgin"]         $workspace1_chat
+assign [class="Rambox"]         $workspace1_chat
 assign [class="Thunderbird"]    $workspace2_mail
-assign [class="chromium-browswer"]        $workspace4_browser
+assign [class="chromium-browser"]        $workspace4_browser
 assign [class="Eclipse"]        $workspace3_code
 assign [class="jetbrains-idea"] $workspace3_code
 
@@ -254,7 +254,8 @@ exec --no-startup-id clipit
 exec --no-startup-id volwheel
 exec --no-startup-id nm-applet
 exec --no-startup-id thunderbird
-exec --no-startup-id chromium-browser
+exec --no-startup-id i3-msg 'workspace $workspace4_browser; exec chromium-browser' 
+#exec --no-startup-id chromium-browser
 exec --no-startup-id xautolock -time 3 -locker "$Locker"
 exec --no-startup-id redshift-gtk
 exec --no-startup-id numlockx on
@@ -267,10 +268,10 @@ exec_always --no-startup-id feh --bg-scale ~/Pictures/wallpaper.jpg
 bar {
   status_command       i3status
     position           top
-    workspace_buttons  yes
-    tray_output        DP1-1
-    tray_output        HDMI1
-    tray_output        eDP1        # internal display 
+#    workspace_buttons  yes
+#    tray_output        DP1-1
+#    tray_output        HDMI1
+#    tray_output        eDP1        # internal display 
     status_command     i3status -c ~/.config/i3/i3status.conf
     font               pango:$font, $icon_font
   colors {
